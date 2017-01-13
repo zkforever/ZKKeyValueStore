@@ -13,7 +13,9 @@
 
 - (id)copyWithZone:(NSZone *)zone {
     id obj = [[self class] new];
-    NSDictionary *selfDict = [self getDictionaryWithSelf];
+    //取出自身属性对应的字典
+    NSDictionary *selfDict = [NSDictionary dictionaryWithDictionary:[self getDictionaryWithSelf]];
+    //设置字典
     [obj setPropertyWithDict:selfDict];
     return obj;
 }
@@ -51,7 +53,15 @@
             //获得传入字典的键对应的值，也就是要赋给属性的值
         id aDictValue = [dict valueForKey:aDictKey];
         if (aDictValue && ![aDictValue isEqual:[NSNull null]]) {
-            [self setValue:aDictValue forKey:attributeName];
+            //判断value是否是容器类，如果是容器类的话，做一次序列化
+            if ([self isContainerClass:aDictValue]) {
+                id archiverValue = [NSKeyedUnarchiver unarchiveObjectWithData:
+                                              [NSKeyedArchiver archivedDataWithRootObject: aDictValue]];
+                [self setValue:archiverValue forKey:attributeName];
+                
+            }else{
+                [self setValue:aDictValue forKey:attributeName];
+            }
         }
     }
     
@@ -62,12 +72,28 @@
             id aDictValue = [dict valueForKey:attributeName];
             if (aDictValue && ![aDictValue isEqual:[NSNull null]]) {
                 if ([self isContainProperty:attributeName]) {
-                    [self setValue:aDictValue forKey:attributeName];
+                    //判断value是否是容器类，如果是容器类的话，做一次序列化,保证是完全copy
+                    if ([self isContainerClass:aDictValue]) {
+                        id archiverValue = [NSKeyedUnarchiver unarchiveObjectWithData:
+                                            [NSKeyedArchiver archivedDataWithRootObject: aDictValue]];
+                        [self setValue:archiverValue forKey:attributeName];
+                        
+                    }else{
+                        [self setValue:aDictValue forKey:attributeName];
+                    }
                 }
             }
         }
     }
     
+}
+
+//判断是不是容器类
+- (BOOL)isContainerClass:(id)instance {
+    if ([instance isKindOfClass:[NSArray class]] || [instance isKindOfClass:[NSMutableArray class]] || [instance isKindOfClass:[NSSet class]] || [instance isKindOfClass:[NSMutableSet class]] || [instance isKindOfClass:[NSDictionary class]] || [instance isKindOfClass:[NSMutableDictionary class]]) {
+        return YES;
+    }
+    return NO;
 }
 
 
@@ -149,7 +175,6 @@
        || [obj isKindOfClass:[NSNull class]]) {
         return obj;
     }
-    
     //判断是不是数组
     if([obj isKindOfClass:[NSArray class]]) {
         NSArray *objarr = obj;

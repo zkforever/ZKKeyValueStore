@@ -25,10 +25,10 @@
 
 
 /**
- 取对象字典
+ 取对象
 
  @param key key值
- @return <#return value description#>
+ @return 对象
  */
 - (id)getObjectForKey:(NSString*)key;
 

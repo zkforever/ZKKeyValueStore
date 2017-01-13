@@ -29,7 +29,12 @@
     userObj.account = 121212.42342342f;
     userObj.testArray = [NSMutableArray arrayWithArray:@[@"1",@"2",@"3"]];
     
-    NSLog(@"name==%@,userId = %d,age=%d,account==%f,testAcount=%f,testArray==%@",userObj.name,userObj.userId,userObj.age,userObj.account,userObj.testAccount,userObj.testArray);
+    NSLog(@"name==%@,userId = %d,age=%d,account==%f,testAcount=%f,testArray==%p",userObj.name,userObj.userId,userObj.age,userObj.account,userObj.testAccount,[userObj.testArray objectAtIndex:0]);
+    
+    
+    UserObj *copyObj = [userObj copy];
+    NSLog(@"name==%@,userId = %d,age=%d,account==%f,testAcount=%f,testArray==%p",copyObj.name,copyObj.userId,copyObj.age,copyObj.account,copyObj.testAccount,[copyObj.testArray objectAtIndex:0]);
+    
     
     
     //存对象
@@ -92,9 +97,15 @@
     //取可变NSSet
     NSSet *testMuSet = [[ZKKeyValueStore sharedInstance] getObjectForKey:@"testMuSet"];
     NSLog(@"testMuSet == %@",testMuSet);
+    
+    
+    //存NSNumber
+    NSNumber *number = [NSNumber numberWithDouble:1.1];
+    [[ZKKeyValueStore sharedInstance] storeObject:number andKey:@"testNumber"];
+    //取NSNumber
+    NSNumber *testNumber =[[ZKKeyValueStore sharedInstance] getObjectForKey:@"testNumber"];
+    NSLog(@"number==%.1f",[testNumber doubleValue]);
     // Do any additional setup after loading the view, typically from a nib.
-    
-    
 }
 
 

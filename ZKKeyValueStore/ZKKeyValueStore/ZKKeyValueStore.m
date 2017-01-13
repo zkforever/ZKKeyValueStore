@@ -39,6 +39,7 @@ static ZKKeyValueStore *_sharedInstance;
         YTKKeyValueStore *store = [[YTKKeyValueStore alloc] initDBWithName:DBNAME];
         [store createTableWithName:TABLENAME];
         _sharedInstance.store = store;
+        //这个类型Array是做容器类型判断用的
         _sharedInstance.typeArray = @[@"NSArray",@"NSMutableArray",@"__NSArrayI",@"__NSSetI",@"NSMutableSet",@"NSSet",@"__NSSetM",@"NSMutableDictionary",@"__NSDictionaryI",@"NSDictionary"];
         store = nil;
     });
@@ -101,7 +102,7 @@ static ZKKeyValueStore *_sharedInstance;
 }
 
 
-//判断是某个类
+//判断某个类是不是容器类,用类名和instance的判断方式是不一样的
 - (BOOL)isContainKindOfType:(NSString*)className {
     BOOL ret = NO;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF == %@", className];

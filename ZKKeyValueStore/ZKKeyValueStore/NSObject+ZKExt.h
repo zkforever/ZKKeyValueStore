@@ -16,7 +16,7 @@
 //设置属性
 - (void)setPropertyWithDict:(NSDictionary*)dict;
 
-//映射字典，重写此方法修改映射字典
+//映射字典，重写此方法可修改映射字典
 - (NSDictionary*)getMapDict;
 
 
