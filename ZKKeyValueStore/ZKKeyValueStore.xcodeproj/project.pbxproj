@@ -16,6 +16,7 @@
 		585E376F1E208B96007D7DE4 /* ZKKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 585E376E1E208B96007D7DE4 /* ZKKeyValueStore.m */; };
 		585E37721E209844007D7DE4 /* UserObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 585E37711E209844007D7DE4 /* UserObj.m */; };
 		585E37751E209A3D007D7DE4 /* NSObject+ZKExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 585E37741E209A3D007D7DE4 /* NSObject+ZKExt.m */; };
+		5875B9951E5D21C300AC82D9 /* FMDatabase_ZKAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5875B9941E5D21C300AC82D9 /* FMDatabase_ZKAddition.m */; };
 		82C1B140AA7C0D436064EC05 /* libPods-ZKKeyValueStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B5930EAFFA3D828BC900DF /* libPods-ZKKeyValueStore.a */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,8 @@
 		585E37711E209844007D7DE4 /* UserObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObj.m; sourceTree = "<group>"; };
 		585E37731E209A3D007D7DE4 /* NSObject+ZKExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZKExt.h"; sourceTree = "<group>"; };
 		585E37741E209A3D007D7DE4 /* NSObject+ZKExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZKExt.m"; sourceTree = "<group>"; };
+		5875B9931E5D21C300AC82D9 /* FMDatabase_ZKAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase_ZKAddition.h; sourceTree = "<group>"; };
+		5875B9941E5D21C300AC82D9 /* FMDatabase_ZKAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase_ZKAddition.m; sourceTree = "<group>"; };
 		908AAB7A02651E4385D051D9 /* Pods-ZKKeyValueStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKKeyValueStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZKKeyValueStore/Pods-ZKKeyValueStore.release.xcconfig"; sourceTree = "<group>"; };
 		E7B5930EAFFA3D828BC900DF /* libPods-ZKKeyValueStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZKKeyValueStore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C7ACB074E8972ACC1AE7EF /* Pods-ZKKeyValueStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKKeyValueStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKKeyValueStore/Pods-ZKKeyValueStore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 				585E37741E209A3D007D7DE4 /* NSObject+ZKExt.m */,
 				585E376D1E208B96007D7DE4 /* ZKKeyValueStore.h */,
 				585E376E1E208B96007D7DE4 /* ZKKeyValueStore.m */,
+				5875B9931E5D21C300AC82D9 /* FMDatabase_ZKAddition.h */,
+				5875B9941E5D21C300AC82D9 /* FMDatabase_ZKAddition.m */,
 				585E375F1E2088EC007D7DE4 /* Main.storyboard */,
 				585E37621E2088EC007D7DE4 /* Assets.xcassets */,
 				585E37641E2088EC007D7DE4 /* LaunchScreen.storyboard */,
@@ -246,6 +251,7 @@
 				585E37751E209A3D007D7DE4 /* NSObject+ZKExt.m in Sources */,
 				585E37721E209844007D7DE4 /* UserObj.m in Sources */,
 				585E375B1E2088EC007D7DE4 /* AppDelegate.m in Sources */,
+				5875B9951E5D21C300AC82D9 /* FMDatabase_ZKAddition.m in Sources */,
 				585E37581E2088EC007D7DE4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

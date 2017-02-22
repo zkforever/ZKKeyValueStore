@@ -1,17 +1,31 @@
 PODS:
-  - FMDB (2.6.2):
-    - FMDB/standard (= 2.6.2)
-  - FMDB/standard (2.6.2)
+  - FMDB/SQLCipher (2.6.2):
+    - SQLCipher
+  - SQLCipher (3.1.0):
+    - SQLCipher/standard (= 3.1.0)
+  - SQLCipher/common (3.1.0)
+  - SQLCipher/standard (3.1.0):
+    - SQLCipher/common
   - YTKKeyValueStore (0.1.2):
-    - FMDB (~> 2.0)
+    - FMDB/SQLCipher
 
 DEPENDENCIES:
-  - YTKKeyValueStore
+  - YTKKeyValueStore (from `https://github.com/zkforever/YTKKeyValueStore.git`)
+
+EXTERNAL SOURCES:
+  YTKKeyValueStore:
+    :git: https://github.com/zkforever/YTKKeyValueStore.git
+
+CHECKOUT OPTIONS:
+  YTKKeyValueStore:
+    :commit: 7ac052da832871936178c5409d1605cf88aac802
+    :git: https://github.com/zkforever/YTKKeyValueStore.git
 
 SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
-  YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
+  SQLCipher: 4684434d5791db86512cd7e02172aefba575849e
+  YTKKeyValueStore: 659e77ad568d06426c9f8c6315c64324749f0b79
 
-PODFILE CHECKSUM: 1902f28775d680492e2310922ad337725748587f
+PODFILE CHECKSUM: 41c707b77f3d0d2178f1236e5d910ccc736b8e90
 
 COCOAPODS: 1.0.1

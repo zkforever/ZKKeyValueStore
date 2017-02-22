@@ -168,7 +168,6 @@
         NSLog(@"error opening!: %d", err);
         return NO;
     }
-    
     if (_maxBusyRetryTimeInterval > 0.0) {
         // set the handler
         [self setMaxBusyRetryTimeInterval:_maxBusyRetryTimeInterval];
