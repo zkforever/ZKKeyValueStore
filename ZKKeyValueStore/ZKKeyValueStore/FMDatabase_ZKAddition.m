@@ -18,6 +18,8 @@
 #import <sqlite3.h>
 #endif
 
+#define DBSECURETKEY @"justabc123"
+
 @implementation FMDatabase (FMDatabase_Addition)
 
 + (void)load {
@@ -45,7 +47,7 @@
         NSLog(@"error opening!: %d", err);
         return NO;
     }
-    const char* key = [@"justabc123" UTF8String];
+    const char* key = [DBSECURETKEY UTF8String];
     
     sqlite3_key(_db, key, (int)strlen(key));//注意此行
     
@@ -70,7 +72,7 @@
         NSLog(@"error opening!: %d", err);
         return NO;
     }
-    const char* key = [@"justabc123" UTF8String];
+    const char* key = [DBSECURETKEY UTF8String];
     
     sqlite3_key(_db, key, (int)strlen(key));//注意此行
     if (_maxBusyRetryTimeInterval > 0.0) {
