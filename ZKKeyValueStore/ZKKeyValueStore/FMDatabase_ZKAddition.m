@@ -23,18 +23,21 @@
 @implementation FMDatabase (FMDatabase_Addition)
 
 + (void)load {
-    Method openMethod = class_getInstanceMethod([self class], @selector(open));
-    // 获取自定义方法openNew
-    Method openMethodNew = class_getInstanceMethod([self class], @selector(openNew));
-    // 交换方法实现
-    method_exchangeImplementations(openMethod, openMethodNew);
-    
-    
-    Method openWithFlagMethod = class_getInstanceMethod([self class], @selector(openWithFlags:vfs:));
-    // 获取自定义方法openWithFlagsNew
-    Method openWithFlagMethodNew = class_getInstanceMethod([self class], @selector(openWithFlagsNew:vfs:));
-    // 交换方法实现
-    method_exchangeImplementations(openWithFlagMethod, openWithFlagMethodNew);
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Method openMethod = class_getInstanceMethod([self class], @selector(open));
+        // 获取自定义方法openNew
+        Method openMethodNew = class_getInstanceMethod([self class], @selector(openNew));
+        // 交换方法实现
+        method_exchangeImplementations(openMethod, openMethodNew);
+        
+        
+        Method openWithFlagMethod = class_getInstanceMethod([self class], @selector(openWithFlags:vfs:));
+        // 获取自定义方法openWithFlagsNew
+        Method openWithFlagMethodNew = class_getInstanceMethod([self class], @selector(openWithFlagsNew:vfs:));
+        // 交换方法实现
+        method_exchangeImplementations(openWithFlagMethod, openWithFlagMethodNew);
+    });
 }
 
 - (BOOL)openNew {
