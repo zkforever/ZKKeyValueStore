@@ -29,45 +29,26 @@
     userObj.account = 121212.42342342f;
     userObj.testArray = [NSMutableArray arrayWithArray:@[@"1",@"2",@"3"]];
     
-//    NSLog(@"name==%@,userId = %d,age=%d,account==%f,testAcount=%f,testArray==%p",userObj.name,userObj.userId,userObj.age,userObj.account,userObj.testAccount,[userObj.testArray objectAtIndex:0]);
-//    
-//    
-//    UserObj *copyObj = [userObj copy];
-//    
-//    userObj.user1 = copyObj;
-//    NSLog(@"name==%@,userId = %d,age=%d,account==%f,testAcount=%f,testArray==%p",copyObj.name,copyObj.userId,copyObj.age,copyObj.account,copyObj.testAccount,[copyObj.testArray objectAtIndex:0]);
+    
+    
+    UserObj *copyObj = [userObj copy];
+    
+    userObj.user1 = copyObj;
+    NSLog(@"name==%@,userId = %d,age=%d,account==%f,testAcount=%f,testArray==%p",copyObj.name,copyObj.userId,copyObj.age,copyObj.account,copyObj.testAccount,[copyObj.testArray objectAtIndex:0]);
     
     
     
-//    //存对象
-//    [[ZKKeyValueStore sharedInstance] storeObject:userObj andKey:@"user"];
-//    
-//    //取真实对象
-//    UserObj *newObj = [[ZKKeyValueStore sharedInstance] getObjectForKey:@"user"];
-//    NSLog(@"name==%@,userId = %d,age=%d,account==%f,testAcount=%d,testArray==%@",newObj.name,newObj.userId,newObj.age,newObj.account,newObj.user1.userId,newObj.testArray);
-////删对象
-//       [[ZKKeyValueStore sharedInstance] deleteObject:@"user"];
-//
-//    UserObj *anewObj = [[ZKKeyValueStore sharedInstance] getObjectForKey:@"user"];
-//    NSLog(@"a===%@",anewObj);
-//    //存字典
-//    NSDictionary *testDict = @{@"abc":@"a",@"b":@2};
-//    [[ZKKeyValueStore sharedInstance] storeObject:testDict andKey:@"testDict"];
-//    
-//    //取字典
-//    NSDictionary *dict = [[ZKKeyValueStore sharedInstance] getObjectForKey:@"testDict"];
-//    NSLog(@"dict == %@",dict);
-//    
-//    
-//    //存可变字典
-//    NSMutableDictionary *testMuDict = [NSMutableDictionary dictionaryWithDictionary:@{@"abc":@"a",@"b":@2}];
-//    [[ZKKeyValueStore sharedInstance] storeObject:testMuDict andKey:@"testMuDict"];
-//    
-//    //取字典
-//    NSDictionary *muDict = [[ZKKeyValueStore sharedInstance] getObjectForKey:@"testMuDict"];
-//    NSLog(@"dict == %@",muDict);
-//    
+    //存对象
+    [[ZKKeyValueStore sharedInstance] storeObject:userObj andKey:@"user"];
     
+    //取真实对象
+    UserObj *newObj = [[ZKKeyValueStore sharedInstance] getObjectForKey:@"user"];
+    NSLog(@"name==%@,userId = %d,age=%d,account==%f,testAcount=%d,testArray==%@",newObj.name,newObj.userId,newObj.age,newObj.account,newObj.user1.userId,newObj.testArray);
+//删对象
+       [[ZKKeyValueStore sharedInstance] deleteObject:@"user"];
+
+    UserObj *anewObj = [[ZKKeyValueStore sharedInstance] getObjectForKey:@"user"];
+    NSLog(@"a===%@",anewObj);
     
     NSMutableArray *userFactoryArray = [NSMutableArray array];
     for (int i = 0; i < 10; i++) {
@@ -80,7 +61,6 @@
         aUserChild.testArray = [NSMutableArray arrayWithArray:@[[NSString stringWithFormat:@"%d",i],@"22",@"33"]];
         [userFactoryArray addObject:aUserChild];
     }
-    
     
     UserObj *userChild = userFactoryArray[0];
     userChild.user1 = userFactoryArray[3];
@@ -95,6 +75,30 @@
     userObj1.account = 121212.42342342f;
     userObj1.testArray = [NSMutableArray arrayWithArray:@[userChild,userFactoryArray[1]]];
     userObj1.user1 = userFactoryArray[2];
+    
+    
+    //存字典
+    NSDictionary *testDict = @{@"abc":newObj,@"b":userObj1};
+    [[ZKKeyValueStore sharedInstance] storeObject:testDict andKey:@"testDict"];
+    
+    //取字典
+    NSDictionary *dict = [[ZKKeyValueStore sharedInstance] getObjectForKey:@"testDict"];
+    NSLog(@"dict == %@",dict);
+
+    
+    //存可变字典
+    NSMutableDictionary *testMuDict = [NSMutableDictionary dictionaryWithDictionary:@{@"abc":@"a",@"b":@2}];
+    [[ZKKeyValueStore sharedInstance] storeObject:testMuDict andKey:@"testMuDict"];
+    
+    //取字典
+    NSDictionary *muDict = [[ZKKeyValueStore sharedInstance] getObjectForKey:@"testMuDict"];
+    NSLog(@"dict == %@",muDict);
+    
+    
+    
+    
+    
+
     
     //存Array
     NSArray *array = @[userObj,userObj1];

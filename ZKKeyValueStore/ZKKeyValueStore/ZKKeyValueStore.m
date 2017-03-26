@@ -60,15 +60,11 @@ static ZKKeyValueStore *_sharedInstance;
                 [_store putObject:dic withId:key intoTable:TABLENAME];
             }else {
                 id dic = [Object yy_modelToJSONObject];
-                NSLog(@"dic==%@",dic);
                 [_store putObject:dic withId:key intoTable:TABLENAME];
-                NSArray *arr = [NSObject yy_modelWithObj:dic];
-                NSLog(@"arr==%@",arr);
-                
             }
         }else {
             //转成NSDictionary
-            NSDictionary *objDict = [Object getDictionaryWithSelf];
+            NSDictionary *objDict = [Object yy_modelToJSONObject];
             //保存到表里
             [_store putObject:objDict withId:key intoTable:TABLENAME];
         }
@@ -91,7 +87,7 @@ static ZKKeyValueStore *_sharedInstance;
     if (bundle == [NSBundle mainBundle]) {
         //这就是自定义的类
         id instance = [[NSClassFromString(className) alloc] init];
-        [(NSObject*)instance setPropertyWithDict:(NSDictionary*)queryUser];
+        [(NSObject*)instance yy_modelSetWithDictionary:(NSDictionary*)queryUser];
         return instance;
     }else if ([self isContainKindOfType:className]){
         //判断是不是容器类，如果是容器类，直接返回queryUser;
