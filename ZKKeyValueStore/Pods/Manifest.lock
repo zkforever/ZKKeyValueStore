@@ -8,24 +8,32 @@ PODS:
     - SQLCipher/common
   - YTKKeyValueStore (0.1.2):
     - FMDB/SQLCipher
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - YTKKeyValueStore (from `https://github.com/zkforever/YTKKeyValueStore.git`)
+  - YYModel (from `https://github.com/zkforever/YYModel.git`)
 
 EXTERNAL SOURCES:
   YTKKeyValueStore:
     :git: https://github.com/zkforever/YTKKeyValueStore.git
+  YYModel:
+    :git: https://github.com/zkforever/YYModel.git
 
 CHECKOUT OPTIONS:
   YTKKeyValueStore:
     :commit: 7ac052da832871936178c5409d1605cf88aac802
     :git: https://github.com/zkforever/YTKKeyValueStore.git
+  YYModel:
+    :commit: fa13d8f883d147fe23413751d317653cd7ddf6b8
+    :git: https://github.com/zkforever/YYModel.git
 
 SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   SQLCipher: 4684434d5791db86512cd7e02172aefba575849e
   YTKKeyValueStore: 659e77ad568d06426c9f8c6315c64324749f0b79
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 41c707b77f3d0d2178f1236e5d910ccc736b8e90
+PODFILE CHECKSUM: f2b3c2dfa9eaa6ebc40bf097f55fb681ff0366c2
 
 COCOAPODS: 1.0.1

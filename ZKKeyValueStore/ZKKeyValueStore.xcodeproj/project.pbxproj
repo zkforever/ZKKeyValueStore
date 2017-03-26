@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5802727D1E879B1100C7F570 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 580272791E879B1100C7F570 /* NSObject+YYModel.m */; };
+		5802727E1E879B1100C7F570 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5802727B1E879B1100C7F570 /* YYClassInfo.m */; };
 		585E37581E2088EC007D7DE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 585E37571E2088EC007D7DE4 /* main.m */; };
 		585E375B1E2088EC007D7DE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 585E375A1E2088EC007D7DE4 /* AppDelegate.m */; };
 		585E375E1E2088EC007D7DE4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 585E375D1E2088EC007D7DE4 /* ViewController.m */; };
@@ -21,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		580272781E879B1100C7F570 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		580272791E879B1100C7F570 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		5802727A1E879B1100C7F570 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		5802727B1E879B1100C7F570 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		5802727C1E879B1100C7F570 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
 		585E37531E2088EC007D7DE4 /* ZKKeyValueStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKKeyValueStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		585E37571E2088EC007D7DE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		585E37591E2088EC007D7DE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +63,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		580272771E879B1100C7F570 /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				580272781E879B1100C7F570 /* NSObject+YYModel.h */,
+				580272791E879B1100C7F570 /* NSObject+YYModel.m */,
+				5802727A1E879B1100C7F570 /* YYClassInfo.h */,
+				5802727B1E879B1100C7F570 /* YYClassInfo.m */,
+				5802727C1E879B1100C7F570 /* YYModel.h */,
+			);
+			path = YYModel;
+			sourceTree = "<group>";
+		};
 		585E374A1E2088EC007D7DE4 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +96,7 @@
 		585E37551E2088EC007D7DE4 /* ZKKeyValueStore */ = {
 			isa = PBXGroup;
 			children = (
+				580272771E879B1100C7F570 /* YYModel */,
 				585E37591E2088EC007D7DE4 /* AppDelegate.h */,
 				585E375A1E2088EC007D7DE4 /* AppDelegate.m */,
 				585E375C1E2088EC007D7DE4 /* ViewController.h */,
@@ -249,9 +269,11 @@
 				585E376F1E208B96007D7DE4 /* ZKKeyValueStore.m in Sources */,
 				585E375E1E2088EC007D7DE4 /* ViewController.m in Sources */,
 				585E37751E209A3D007D7DE4 /* NSObject+ZKExt.m in Sources */,
+				5802727D1E879B1100C7F570 /* NSObject+YYModel.m in Sources */,
 				585E37721E209844007D7DE4 /* UserObj.m in Sources */,
 				585E375B1E2088EC007D7DE4 /* AppDelegate.m in Sources */,
 				5875B9951E5D21C300AC82D9 /* FMDatabase_ZKAddition.m in Sources */,
+				5802727E1E879B1100C7F570 /* YYClassInfo.m in Sources */,
 				585E37581E2088EC007D7DE4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

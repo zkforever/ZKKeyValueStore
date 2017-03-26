@@ -15,6 +15,7 @@
 @property (nonatomic,copy)NSString *name;
 @property (nonatomic,assign)double account;//财富
 @property (nonatomic,assign)float testAccount;
+@property (nonatomic,strong)UserObj *user1;
 @property (nonatomic,strong)NSMutableArray *testArray;
 
 

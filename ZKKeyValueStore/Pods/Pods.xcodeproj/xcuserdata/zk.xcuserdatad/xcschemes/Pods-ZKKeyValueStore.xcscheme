@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '69FCEC50628B8261BE3955210D31CAF0'
+               BlueprintIdentifier = 'EC863CB12A08BA15DA7F7C606BFC83CE'
                BlueprintName = 'Pods-ZKKeyValueStore'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-ZKKeyValueStore.a'>

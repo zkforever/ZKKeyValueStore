@@ -1,4 +1,5 @@
 platform :ios,'7.0'
 target 'ZKKeyValueStore' do
     pod 'YTKKeyValueStore', :git => 'https://github.com/zkforever/YTKKeyValueStore.git'
+    pod 'YYModel', :git => 'https://github.com/zkforever/YYModel.git'
 end

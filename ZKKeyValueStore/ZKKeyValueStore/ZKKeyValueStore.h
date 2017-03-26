@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NSObject+ZKExt.h"
+#import "YYModel.h"
 
 
 @interface ZKKeyValueStore : NSObject
@@ -33,4 +34,7 @@
 - (id)getObjectForKey:(NSString*)key;
 
 
+
+//删对象
+- (void)deleteObject:(NSString*)key;
 @end

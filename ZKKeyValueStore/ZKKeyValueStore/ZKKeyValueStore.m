@@ -56,9 +56,15 @@ static ZKKeyValueStore *_sharedInstance;
     }else {
         if ([Object isKindOfClass:[NSArray class]] || [Object isKindOfClass:[NSDictionary class]] || [Object isKindOfClass:[NSSet class]]) {
             if ([Object isKindOfClass:[NSSet class]]) {
-                [_store putObject:[(NSSet*)Object allObjects] withId:key intoTable:TABLENAME];
+                id dic = [[(NSSet*)Object allObjects] yy_modelToJSONObject];
+                [_store putObject:dic withId:key intoTable:TABLENAME];
             }else {
-                [_store putObject:Object withId:key intoTable:TABLENAME];
+                id dic = [Object yy_modelToJSONObject];
+                NSLog(@"dic==%@",dic);
+                [_store putObject:dic withId:key intoTable:TABLENAME];
+                NSArray *arr = [NSObject yy_modelWithObj:dic];
+                NSLog(@"arr==%@",arr);
+                
             }
         }else {
             //转成NSDictionary
@@ -74,6 +80,9 @@ static ZKKeyValueStore *_sharedInstance;
 //取对象
 - (id)getObjectForKey:(NSString*)key {
     id queryUser = [_store getObjectById:key fromTable:TABLENAME];
+    if (!queryUser) {
+        return nil;
+    }
     NSString *classKey = [NSString stringWithFormat:@"%@%@",SEEDNAME,key];
     NSString *className = [_store getStringById:classKey fromTable:TABLENAME];
     NSLog(@"class==%@",className);
@@ -86,7 +95,8 @@ static ZKKeyValueStore *_sharedInstance;
         return instance;
     }else if ([self isContainKindOfType:className]){
         //判断是不是容器类，如果是容器类，直接返回queryUser;
-        return queryUser;
+        id obj = [NSObject yy_modelWithObj:queryUser];
+        return obj;
     }else {
         if (queryUser) {
             if ([queryUser isKindOfClass:NSClassFromString(@"NSArray")]) {
@@ -101,6 +111,12 @@ static ZKKeyValueStore *_sharedInstance;
     }
 }
 
+
+
+//删对象
+- (void)deleteObject:(NSString*)key {
+    [_store deleteObjectById:key fromTable:TABLENAME];
+}
 
 //判断某个类是不是容器类,用类名和instance的判断方式是不一样的
 - (BOOL)isContainKindOfType:(NSString*)className {
