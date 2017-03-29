@@ -38,7 +38,7 @@
 /**
  //删对象
 
- @param key 
+ @param key key值
  */
 - (void)deleteObject:(NSString*)key;
 @end

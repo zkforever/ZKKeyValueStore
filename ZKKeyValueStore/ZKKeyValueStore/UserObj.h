@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ClassObj.h"
+#import "NSObject+ZKExt.h"
+
 
 @interface UserObj : NSObject
 
 @property (nonatomic,assign)int userId;
-@property (nonatomic,assign)int age;
 @property (nonatomic,copy)NSString *name;
-@property (nonatomic,assign)double account;//财富
-@property (nonatomic,assign)float testAccount;
-@property (nonatomic,strong)UserObj *user1;
-@property (nonatomic,strong)NSMutableArray *testArray;
+@property (nonatomic,strong)ClassObj *aClass;
+//@property (nonatomic,strong)NSMutableArray *testArray;
 
 
 

@@ -40,7 +40,8 @@ static ZKKeyValueStore *_sharedInstance;
         [store createTableWithName:TABLENAME];
         _sharedInstance.store = store;
         //这个类型Array是做容器类型判断用的
-        _sharedInstance.typeArray = @[@"NSArray",@"NSMutableArray",@"__NSArrayI",@"__NSSetI",@"NSMutableSet",@"NSSet",@"__NSSetM",@"NSMutableDictionary",@"__NSDictionaryI",@"NSDictionary"];
+//        _sharedInstance.typeArray = @[@"NSArray",@"NSMutableArray",@"__NSArrayI",@"__NSArrayM",@"__NSSetI",@"__NSSetM",@"NSMutableSet",@"NSSet",@"__NSSetM",@"NSMutableDictionary",@"__NSDictionaryI",@"NSDictionary"];
+          _sharedInstance.typeArray = @[[NSArray class],[NSSet class],[NSDictionary class]];
         store = nil;
     });
     return _sharedInstance;
@@ -117,10 +118,11 @@ static ZKKeyValueStore *_sharedInstance;
 //判断某个类是不是容器类,用类名和instance的判断方式是不一样的
 - (BOOL)isContainKindOfType:(NSString*)className {
     BOOL ret = NO;
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF == %@", className];
-    NSArray *results = [self.typeArray filteredArrayUsingPredicate:predicate];
-    if (results && results.count > 0) {
-        ret = YES;
+    for (Class cls in self.typeArray) {
+        if ([NSClassFromString(className) isSubclassOfClass:cls]) {
+            ret = YES;
+            break;
+        }
     }
     return ret;
 }

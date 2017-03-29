@@ -11,8 +11,7 @@
 @implementation UserObj
 
 - (NSDictionary*)getMapDict {
-    return @{@"name":@"nick_name",@"age":@"the_age",@"account":@"the_account"};
+    return @{@"name":@"nick_name",@"userId":@"userId",@"ClassObj":@{@"name":@"nick_name",@"aStr":@"aStr"}};
 }
-
 
 @end

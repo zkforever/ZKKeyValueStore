@@ -18,6 +18,8 @@
 		585E37751E209A3D007D7DE4 /* NSObject+ZKExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 585E37741E209A3D007D7DE4 /* NSObject+ZKExt.m */; };
 		5875B9951E5D21C300AC82D9 /* FMDatabase_ZKAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5875B9941E5D21C300AC82D9 /* FMDatabase_ZKAddition.m */; };
 		82C1B140AA7C0D436064EC05 /* libPods-ZKKeyValueStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B5930EAFFA3D828BC900DF /* libPods-ZKKeyValueStore.a */; };
+		BF9E35581E88DCF200CF703A /* ClassObj.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9E35571E88DCF200CF703A /* ClassObj.m */; };
+		BF9E355B1E8901EB00CF703A /* NSObject+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9E355A1E8901EB00CF703A /* NSObject+Properties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,10 @@
 		5875B9931E5D21C300AC82D9 /* FMDatabase_ZKAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase_ZKAddition.h; sourceTree = "<group>"; };
 		5875B9941E5D21C300AC82D9 /* FMDatabase_ZKAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase_ZKAddition.m; sourceTree = "<group>"; };
 		908AAB7A02651E4385D051D9 /* Pods-ZKKeyValueStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKKeyValueStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZKKeyValueStore/Pods-ZKKeyValueStore.release.xcconfig"; sourceTree = "<group>"; };
+		BF9E35561E88DCF200CF703A /* ClassObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassObj.h; sourceTree = "<group>"; };
+		BF9E35571E88DCF200CF703A /* ClassObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassObj.m; sourceTree = "<group>"; };
+		BF9E35591E8901EB00CF703A /* NSObject+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Properties.h"; sourceTree = "<group>"; };
+		BF9E355A1E8901EB00CF703A /* NSObject+Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Properties.m"; sourceTree = "<group>"; };
 		E7B5930EAFFA3D828BC900DF /* libPods-ZKKeyValueStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZKKeyValueStore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C7ACB074E8972ACC1AE7EF /* Pods-ZKKeyValueStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKKeyValueStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKKeyValueStore/Pods-ZKKeyValueStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +89,10 @@
 				585E375D1E2088EC007D7DE4 /* ViewController.m */,
 				585E37701E209844007D7DE4 /* UserObj.h */,
 				585E37711E209844007D7DE4 /* UserObj.m */,
+				BF9E35561E88DCF200CF703A /* ClassObj.h */,
+				BF9E35571E88DCF200CF703A /* ClassObj.m */,
+				BF9E35591E8901EB00CF703A /* NSObject+Properties.h */,
+				BF9E355A1E8901EB00CF703A /* NSObject+Properties.m */,
 				585E37731E209A3D007D7DE4 /* NSObject+ZKExt.h */,
 				585E37741E209A3D007D7DE4 /* NSObject+ZKExt.m */,
 				585E376D1E208B96007D7DE4 /* ZKKeyValueStore.h */,
@@ -221,7 +231,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		597A9DC2415EB104ACF35B6F /* [CP] Embed Pods Frameworks */ = {
@@ -251,7 +261,9 @@
 				585E37751E209A3D007D7DE4 /* NSObject+ZKExt.m in Sources */,
 				585E37721E209844007D7DE4 /* UserObj.m in Sources */,
 				585E375B1E2088EC007D7DE4 /* AppDelegate.m in Sources */,
+				BF9E355B1E8901EB00CF703A /* NSObject+Properties.m in Sources */,
 				5875B9951E5D21C300AC82D9 /* FMDatabase_ZKAddition.m in Sources */,
+				BF9E35581E88DCF200CF703A /* ClassObj.m in Sources */,
 				585E37581E2088EC007D7DE4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
